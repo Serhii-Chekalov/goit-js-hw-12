@@ -1,6 +1,7 @@
-export default function getRefs() {
+export const getRefs = () => {
     return {
-    SearchCountry: document.querySelector('#search-box'),
-    CountryList: document.querySelector('.country-list'),
-    СountryInfo: document.querySelector('.country-info'),
-  }  }
+      SearchCountry: document.querySelector('#search-box'),
+      CountryList: document.querySelector('.country-list'),
+      СountryInfo: document.querySelector('.country-info'),
+    }  
+}
