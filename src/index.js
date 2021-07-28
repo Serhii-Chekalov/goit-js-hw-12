@@ -29,17 +29,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
 
         fetchCountries(event.target.value).then(countries => {
-            Notiflix.Notify.success('Success!!!'); 
             
             if(countries.length === 1) {
                 clearList()
+                Notiflix.Notify.success('Success!!!')
                 const [findedCountry] = countries
                 refs.СountryInfo.innerHTML = Card(findedCountry)
-                return
-            } else {
+                return 
+            }  else if(countries.length > 10){
                 clearCard()
+                Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
+            }
+            else {
+                clearCard()
+                Notiflix.Notify.success('Success!!!')
                 refs.CountryList.innerHTML = List(countries)
             }
+            
         }).catch(() => {
             clearList()
             Notiflix.Notify.failure('Something went wrong!!!');
